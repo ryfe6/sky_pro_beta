@@ -32,8 +32,48 @@ def filter_date(data: str) -> str:
     """
     Функция принимает на вход строку, вида '2018-07-11T02:26:18.671407.'
     Возвращает строку с датой в виде "11.07.2018."
-    :param data: Принимает дату.
+    :param data: Принимает дату в формате строки.
     :return Возвращает Отформатированную строку с датой.
     """
     date = data[0:10].replace("-", "")
     return f"{''.join(date[-2:])}.{''.join(date[-4:-2])}.{''.join(date[-8:-4])}"
+
+
+def dlc_task_1(user_list: list) -> list:
+    """
+    Функция принимает список, проверяет его на совпадение первой и последней буквы.
+    :param user_list: Принимает пользовательский список.
+    :return Возвращает список со совпадениями.
+    """
+    sort_list = []
+    for words in user_list:
+        if words == "":
+            sort_list.append(words)
+        elif words[0] == words[-1]:
+            sort_list.append(words)
+        else:
+            pass
+    return sort_list
+
+
+def dlc_task_2(user_list: list) -> int:
+    """
+    Функция принимает список чисел, и возвращает наибольшую сумму составленную из двух чисел имеющихся в списке.
+    :param user_list:
+    :return: Максимальная сумма состоящая из двух чисел или 0, если передано 1 или 0 чисел.
+    """
+    if len(user_list) < 2:
+        return 0
+    else:
+        max_sum = 0
+        for num in user_list:
+            for num_2 in user_list:
+                if num == num_2:
+                    pass
+                else:
+                    two_sum = num * num_2
+                    if two_sum > max_sum:
+                        max_sum = two_sum
+                    else:
+                        pass
+        return max_sum
