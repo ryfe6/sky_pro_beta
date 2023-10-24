@@ -28,4 +28,12 @@ def mask_card_and_score(info_card_or_score: str) -> str:
             return "Введен некорректный номер карты"
 
 
-print(mask_card_and_score("Счет 6468647367889477958"))
+def filter_date(data: str) -> str:
+    """
+    Функция принимает на вход строку, вида '2018-07-11T02:26:18.671407.'
+    Возвращает строку с датой в виде "11.07.2018."
+    :param data: Принимает дату.
+    :return Возвращает Отформатированную строку с датой.
+    """
+    date = data[0:10].replace("-", "")
+    return f"{''.join(date[-2:])}.{''.join(date[-4:-2])}.{''.join(date[-8:-4])}"
