@@ -1,6 +1,3 @@
-import os
-
-
 def mask_card(num_card: str) -> str:
     """
     Функция принимает номер карты, маскирует его и
@@ -16,9 +13,7 @@ def mask_card(num_card: str) -> str:
         return (
             f'{"".join(num_list[0:4])} {"".join(num_list[4:8])} ' f'{"".join(num_list[8:12])} {"".join(num_list[12:])}'
         )
-
-
-print(mask_card("7000792289606361"))
+    return ""
 
 
 def score_mask(num_score: str) -> str:
@@ -29,7 +24,6 @@ def score_mask(num_score: str) -> str:
     """
     score_list = list(num_score)
     return f'**{"".join(score_list[-4:])}'
-
 
 # def direct(way, counting=None):
 #     directory_count = 0

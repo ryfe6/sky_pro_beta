@@ -17,15 +17,16 @@ def mask_card_and_score(info_card_or_score: str) -> str:
         num_card = "".join(filter(lambda card: card.isdigit(), info_card_or_score))  # Вытаскиваем из строки цифры
         if len(num_card) == 16:
             name_card = [name for name in info_card_or_score if not name.isdigit()]  # Вытаскиваем из строки имя карты
-            num_card = list(num_card)  # Превращаем строку в список, чтобы изменить ее содержимое
-            num_card[6:11] = "******"
+            num_cards = list(num_card)  # Превращаем строку в список, чтобы изменить ее содержимое
+            num_cards[6:11] = "******"
             return (
                 f'{"".join(name_card)} '
-                f'{"".join(num_card[0:4])} {"".join(num_card[4:8])} '
-                f'{"".join(num_card[8:12])} {"".join(num_card[12:])}'
+                f'{"".join(num_cards[0:4])} {"".join(num_cards[4:8])} '
+                f'{"".join(num_cards[8:12])} {"".join(num_cards[12:])}'
             )
         else:
             return "Введен некорректный номер карты"
+    return "yps"
 
 
 def filter_date(data: str) -> str:
