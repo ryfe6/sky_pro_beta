@@ -6,14 +6,12 @@ def mask_card(num_card: str) -> str:
     :return: Маскированный по правилу номер
     """
     num_list = list(num_card.replace(" ", ""))
-    if len(num_list) != 16:
-        return "Неправильный номер карты"
-    elif len(num_list) == 16:
+    if len(num_list) == 16:
         num_list[6:11] = "******"
         return (
             f'{"".join(num_list[0:4])} {"".join(num_list[4:8])} ' f'{"".join(num_list[8:12])} {"".join(num_list[13:])}'
         )
-    return ""
+    return "Неправильный номер карты"
 
 
 def score_mask(num_score: str) -> str:

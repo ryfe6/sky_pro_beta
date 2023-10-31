@@ -17,15 +17,6 @@ def dictionary_list_filter(dict_list: list, state: str = "EXECUTED") -> list:
     return new_dict_list
 
 
-def get_data_of_sort(dict_list: dict) -> list:
-    """
-    Функция принимает список словарей и возвращает только значения по ключу.
-    :param dict_list:  Список словарей.
-    :return: Значения по ключу 'date'
-    """
-    return dict_list['date']
-
-
 def dictionary_list_filter_time(dict_list: list, filter_: str = "low") -> list[dict] | str:
     """
      Функция принимает список словарей, который надо отсортировать и фильтр по котору будет отсортирован.
@@ -35,7 +26,7 @@ def dictionary_list_filter_time(dict_list: list, filter_: str = "low") -> list[d
     :return: Отсортированный по правилу список словарей
     """
     if filter_ == "low":
-        return sorted(dict_list, key=get_data_of_sort, reverse=True)
+        return sorted(dict_list, key=lambda data: data['data'], reverse=True)
     elif filter_ == "high":
-        return sorted(dict_list, key=get_data_of_sort)
+        return sorted(dict_list, key=lambda data: data['data'])
     return 'yps'
