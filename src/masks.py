@@ -6,12 +6,12 @@ def mask_card(num_card: str) -> str:
     :return: Маскированный по правилу номер
     """
     num_list = list(num_card.replace(" ", ""))
-    if len(num_list) != 16 or len(num_list) > 16:
+    if len(num_list) != 16:
         return "Неправильный номер карты"
     elif len(num_list) == 16:
         num_list[6:11] = "******"
         return (
-            f'{"".join(num_list[0:4])} {"".join(num_list[4:8])} ' f'{"".join(num_list[8:12])} {"".join(num_list[12:])}'
+            f'{"".join(num_list[0:4])} {"".join(num_list[4:8])} ' f'{"".join(num_list[8:12])} {"".join(num_list[13:])}'
         )
     return ""
 
@@ -22,8 +22,11 @@ def score_mask(num_score: str) -> str:
     :param num_score: Номер счета для маскирования
     :return: Маскированный по правилу номер счета
     """
-    score_list = list(num_score)
-    return f'**{"".join(score_list[-4:])}'
+    if len(num_score) != 20:
+        return "Неправильный номер счета"
+    else:
+        score_list = list(num_score)
+        return f'**{"".join(score_list[-4:])}'
 
 # def direct(way, counting=None):
 #     directory_count = 0

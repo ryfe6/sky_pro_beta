@@ -26,7 +26,7 @@ def mask_card_and_score(info_card_or_score: str) -> str:
             )
         else:
             return "Введен некорректный номер карты"
-    return "yps"
+    return "Что то пошло не так"
 
 
 def filter_date(data: str) -> str:
