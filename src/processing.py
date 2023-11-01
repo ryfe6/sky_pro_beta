@@ -26,7 +26,8 @@ def dictionary_list_filter_time(dict_list: list, filter_: str = "low") -> list[d
     :return: Отсортированный по правилу список словарей
     """
     if filter_ == "low":
-        return sorted(dict_list, key=lambda data: data['data'], reverse=True)
+        return sorted(dict_list, key=lambda data: data['date'], reverse=True)
     elif filter_ == "high":
-        return sorted(dict_list, key=lambda data: data['data'])
-    return 'yps'
+        return sorted(dict_list, key=lambda data: data['date'])
+    return "Что то пошло не так..."
+
