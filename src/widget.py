@@ -22,11 +22,9 @@ def mask_card_and_score(info_card_or_score: str) -> str:
             return (
                 f'{"".join(name_card)} '
                 f'{"".join(num_cards[0:4])} {"".join(num_cards[4:8])} '
-                f'{"".join(num_cards[8:12])} {"".join(num_cards[12:])}'
+                f'{"".join(num_cards[8:12])} {"".join(num_cards[13:])}'
             )
-        else:
-            return "Введен некорректный номер карты"
-    return "yps"
+    return "Введен некорректный номер карты"
 
 
 def filter_date(data: str) -> str:
