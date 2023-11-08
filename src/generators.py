@@ -1,26 +1,25 @@
-import pytest
+from typing import Iterable
 
 
-@pytest.fixture
-def test_data_widget():
-    return [
-        "Maestro 1596837868705199",
-        "Счет 64686473678894779589",
-        "Счет 3538303347444789556",
-        "чет 73654108430135874305",
-    ]
+def card_number_generator(start: int, end: int) -> Iterable[str]:
+    for num in range(start, end + 1):
+        number = f"{'0' * (16 - len(str(num)))}{num}"
+        yield f"{number[:4]} {number[4:8]} {number[8:12]} {number[12:]}"
 
 
-@pytest.fixture
-def test_data_processing():
-    return [{'id': 41428829, 'state': 'EXECUTED', 'date': '2019-07-03T18:35:29.512364'},
-            {'id': 939719570, 'state': 'EXECUTED', 'date': '2018-06-30T02:08:58.425572'},
-            {'id': 594226727, 'state': 'CANCELED', 'date': '2018-09-12T21:27:25.241689'}]
+def transaction_descriptions(transaction: list) -> Iterable:
+    for desc in transaction:
+        yield desc['description']
 
 
-@pytest.fixture
-def test_data_generators():
-    return [
+def get_id_transactions(transaction: list, currency: str = 'USD') -> Iterable:
+    for i in transaction:
+        if i['operationAmount']['currency']['code'] == currency:
+            yield i['id']
+
+
+transactions = (
+    [
         {
             "id": 939719570,
             "state": "EXECUTED",
@@ -97,3 +96,4 @@ def test_data_generators():
             "to": "Счет 14211924144426031657"
         }
     ]
+)
