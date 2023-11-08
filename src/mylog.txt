@@ -9,3 +9,5 @@
 2023-11-08T17:18:07 my_function error: <2.0>. Inputs: (2, 1) 
 2023-11-08T17:19:20 my_function ok 
 2023-11-08T17:19:34 my_function error: <<class 'ZeroDivisionError'>>. Inputs: (2, 0) 
+2023-11-08T20:11:16 my_function ok 
+2023-11-08T20:13:05 my_function ok 
