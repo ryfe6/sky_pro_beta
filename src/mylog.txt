@@ -1,0 +1,11 @@
+2023-11-08T17:12:49 my_function error: <2.0>. Inputs: (2, 1) 
+2023-11-08T17:13:21 my_function ok 
+2023-11-08T17:13:38 my_function ok 
+2023-11-08T17:14:41 my_function ok 
+2023-11-08T17:14:53 my_function error: <2.0>. Inputs: (2, 1) 
+2023-11-08T17:15:04 my_function error: <2.0>. Inputs: (2, 1) 
+2023-11-08T17:15:25 my_function error: <2.0>. Inputs: (2, 1) 
+2023-11-08T17:15:43 my_function error: <2.0>. Inputs: (2, 1) 
+2023-11-08T17:18:07 my_function error: <2.0>. Inputs: (2, 1) 
+2023-11-08T17:19:20 my_function ok 
+2023-11-08T17:19:34 my_function error: <<class 'ZeroDivisionError'>>. Inputs: (2, 0) 

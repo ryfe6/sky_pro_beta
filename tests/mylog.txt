@@ -1,0 +1,6 @@
+2023-11-08T17:44:15 my_function ok 
+2023-11-08T17:44:15 my_function error: <ZeroDivisionError>. Inputs: (1, 0) 
+2023-11-08T17:44:15 my_function ok 
+2023-11-08T17:44:23 my_function ok 
+2023-11-08T17:44:23 my_function error: <ZeroDivisionError>. Inputs: (1, 0) 
+2023-11-08T17:44:23 my_function ok 
