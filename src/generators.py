@@ -15,7 +15,7 @@ def transaction_descriptions(transaction: list) -> Iterable:
 def get_id_transactions(transaction: list, currency: str = 'USD') -> Iterable:
     for i in transaction:
         if i['operationAmount']['currency']['code'] == currency:
-            yield i['id']
+            yield i
 
 
 transactions = (
