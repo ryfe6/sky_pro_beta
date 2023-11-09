@@ -30,4 +30,3 @@ def dictionary_list_filter_time(dict_list: list, filter_: str = "low") -> list[d
     elif filter_ == "high":
         return sorted(dict_list, key=lambda data: data['date'])
     return "Что то пошло не так..."
-
