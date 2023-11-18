@@ -26,6 +26,7 @@ def score_mask(num_score: str) -> str:
         score_list = list(num_score)
         return f'**{"".join(score_list[-4:])}'
 
+
 # def direct(way, counting=None):
 #     directory_count = 0
 #     file_count = 0
