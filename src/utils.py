@@ -23,13 +23,12 @@ def get_operations_sum_in_rub(operation: list) -> float:
     :param operation: Данные банковской операции.
     :return: Сумма в рублях
     """
-    for data in operation:
-        amount = data["operationAmount"]["amount"]
-        code = data["operationAmount"]["currency"]["code"]
-        if code == "RUB":
-            return float(amount)
-        else:
-            raise ValueError("Транзакция выполнена не в рублях. Укажите транзакцию в рублях.")
+    amount = operation["amount"]
+    code = operation["currency"]["code"]
+    if code == "RUB":
+        return float(amount)
+    else:
+        raise ValueError("Транзакция выполнена не в рублях. Укажите транзакцию в рублях.")
 
 
 def generator_data_operations(list_operations: list) -> Generator:
@@ -40,4 +39,4 @@ def generator_data_operations(list_operations: list) -> Generator:
     :return: Данные об одной операции.
     """
     for i in list_operations:
-        yield [i]
+        yield i['operationAmount']
