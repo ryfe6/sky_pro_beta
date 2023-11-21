@@ -9,12 +9,12 @@ def card_number_generator(start: int, end: int) -> Iterable[str]:
 
 def transaction_descriptions(transaction: list) -> Iterable:
     for desc in transaction:
-        yield desc['description']
+        yield desc["description"]
 
 
-def get_id_transactions(transaction: list, currency: str = 'USD') -> Iterable:
+def get_id_transactions(transaction: list, currency: str = "USD") -> Iterable:
     for i in transaction:
-        if i['operationAmount']['currency']['code'] == currency:
+        if i["operationAmount"]["currency"]["code"] == currency:
             yield i
 
 

@@ -2,6 +2,7 @@ import time
 from functools import wraps
 from typing import Any, Callable
 
+
 def log(filename: Any = None) -> Callable:
     """Декоратор, принимает путь для записи данных."""
 
