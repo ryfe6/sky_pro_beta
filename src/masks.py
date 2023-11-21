@@ -1,3 +1,6 @@
+import logging
+
+
 def mask_card(num_card: str) -> str:
     """
     Функция принимает номер карты, маскирует его и
@@ -27,31 +30,13 @@ def score_mask(num_score: str) -> str:
         return f'**{"".join(score_list[-4:])}'
 
 
-# def direct(way, counting=None):
-#     directory_count = 0
-#     file_count = 0
-#     if counting is not None:
-#         ls = os.walk(way)
-#         # way = os.listdir('C:/Users/ryfe/PycharmProjects/pythonProject4/src')
-#     else:
-#         ls = os.listdir(way)
-#
-#     for file in ls:
-#         for i in file:
-#             if i[0] in '.':
-#                 directory_count += 1
-#                 break
-#             elif i == ".":
-#                 file_count += 1
-#                 break
-#             else:
-#                 directory_count += 1
-#                 break
-#
-#     dictionary = {"Файлы": directory_count, "Папки": directory_count}
-#      return dictionary
-#
-#
-# way_os = ('C:/Users/ryfe/PycharmProjects/pythonProject4')
-#
-# print(direct(way_os))
+logging.basicConfig(
+    level=logging.DEBUG,
+    filename="my_logging.log",
+    format="%(levelname)s, (%(asctime)s): %(message)s " "Line %(lineno)d) [%(filename)s]",
+    datefmt="%d/%m/%Y %I:%M:%S",
+    encoding="utf-8",
+    filemode="w",
+)
+
+logging.info("test")

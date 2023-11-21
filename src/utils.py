@@ -1,8 +1,9 @@
 import json
-from typing import Generator
+import logging
+from typing import Generator, Any
 
 
-def get_load_json_file(filename: str) -> list:
+def get_load_json_file(filename: str) -> Any:
     """
     Функция принимает json файл, обрабатывает его и возвращает список с данными.
     :param filename: Json файл.
@@ -16,13 +17,14 @@ def get_load_json_file(filename: str) -> list:
         return []
 
 
-def get_operations_sum_in_rub(operation: list) -> float:
+def get_operations_sum_in_rub(operation: Any) -> Any:
     """
     Функция принимает данные о банковской операции
      и возвращает сумму транзакции в рублях или выбрасывает исключение.
     :param operation: Данные банковской операции.
     :return: Сумма в рублях
     """
+
     amount = operation["amount"]
     code = operation["currency"]["code"]
     if code == "RUB":
@@ -39,4 +41,16 @@ def generator_data_operations(list_operations: list) -> Generator:
     :return: Данные об одной операции.
     """
     for i in list_operations:
-        yield i['operationAmount']
+        yield i["operationAmount"]
+
+
+logging.basicConfig(
+    level=logging.DEBUG,
+    filename="my_logging.log",
+    format="%(levelname)s, (%(asctime)s): %(message)s " "Line %(lineno)d) [%(filename)s]",
+    datefmt="%d/%m/%Y %I:%M:%S",
+    encoding="utf-8",
+    filemode="w",
+)
+
+logging.debug("test")
