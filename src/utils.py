@@ -1,5 +1,5 @@
 import json
-import logging
+from src.logger import setup_logging
 from typing import Generator, Any
 
 
@@ -9,11 +9,14 @@ def get_load_json_file(filename: str) -> Any:
     :param filename: Json файл.
     :return: Список обработанных данных.
     """
+    logger.info("get_load_json_file started")
     try:
         with open(filename, "r", encoding="utf-8") as file:
             json_file = json.load(file)
+            logger.info("get_load_json_file finished")
             return json_file
-    except Exception:
+    except Exception as e:
+        logger.exception(e)
         return []
 
 
@@ -24,12 +27,14 @@ def get_operations_sum_in_rub(operation: Any) -> Any:
     :param operation: Данные банковской операции.
     :return: Сумма в рублях
     """
-
+    logger.info("get_operations_sum_in_rub start")
     amount = operation["amount"]
     code = operation["currency"]["code"]
     if code == "RUB":
+        logger.info("get_operations_sum_in_rub finished")
         return float(amount)
     else:
+        logger.exception(ValueError("Транзакция выполнена не в рублях. Укажите транзакцию в рублях."))
         raise ValueError("Транзакция выполнена не в рублях. Укажите транзакцию в рублях.")
 
 
@@ -40,17 +45,16 @@ def generator_data_operations(list_operations: list) -> Generator:
     :param list_operations: Список с данными о банковских операциях.
     :return: Данные об одной операции.
     """
+    logger.info("generator_data_operations start")
     for i in list_operations:
+        logger.info("generator_data_operations finished")
         yield i["operationAmount"]
 
 
-logging.basicConfig(
-    level=logging.DEBUG,
-    filename="my_logging.log",
-    format="%(levelname)s, (%(asctime)s): %(message)s " "Line %(lineno)d) [%(filename)s]",
-    datefmt="%d/%m/%Y %I:%M:%S",
-    encoding="utf-8",
-    filemode="w",
-)
+logger = setup_logging()
 
-logging.debug("test")
+# if __name__ == "__main__":
+#     gen = generator_data_operations(get_load_json_file("../data/operations.json"))
+#     assert_first = next(gen)
+#     print(get_operations_sum_in_rub(assert_first))
+
