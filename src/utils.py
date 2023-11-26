@@ -1,6 +1,7 @@
 import json
+from typing import Any, Generator
+
 from src.logger import setup_logging
-from typing import Generator, Any
 
 
 def get_load_json_file(filename: str) -> Any:
@@ -53,8 +54,7 @@ def generator_data_operations(list_operations: list) -> Generator:
 
 logger = setup_logging()
 
-# if __name__ == "__main__":
-#     gen = generator_data_operations(get_load_json_file("../data/operations.json"))
-#     assert_first = next(gen)
-#     print(get_operations_sum_in_rub(assert_first))
-
+if __name__ == "__main__":
+    gen = generator_data_operations(get_load_json_file("../data/operations.json"))
+    assert_first = next(gen)
+    print(get_operations_sum_in_rub(assert_first))
