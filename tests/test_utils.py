@@ -11,7 +11,7 @@ def test_get_load_json_file():
 def test_generator_data_operations():
     gen = generator_data_operations(get_load_json_file("tests/operations.json"))
     assert_first = next(gen)
-    assert assert_first == {'amount': '31957.58', 'currency': {'code': 'RUB', 'name': 'руб.'}}
+    assert assert_first == {"amount": "31957.58", "currency": {"code": "RUB", "name": "руб."}}
 
 
 def test_get_operation_sum_in_rub():
